@@ -1,0 +1,7 @@
+resolver: lts-18.0   # O cualquier otra versión LTS que prefieras
+
+packages:
+  - .                # Asegúrate de que esta línea esté presente, indica que el paquete está en el directorio actual
+
+extra-deps: []
+

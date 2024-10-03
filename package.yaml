@@ -1,0 +1,42 @@
+name: FoedusML
+version: 0.1.0.0
+license: MIT
+author: "Your Name"
+maintainer: "your.email@example.com"
+extra-source-files:
+  - README.md
+
+# Configuración de la biblioteca
+library:
+  source-dirs: src
+  exposed-modules:
+    - FoedusML.Tensor       # Módulo para operaciones tensoriales
+    - FoedusML.Compression  # Módulo de compresión
+  dependencies:
+    - base >= 4.7 && < 5    # Asegúrate de que 'base' esté aquí
+    - hmatrix               # BLAS/LAPACK
+
+# Configuración del ejecutable
+executables:
+  foedusML-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - base                 # Aquí debes agregar 'base'
+      - FoedusML             # Tu biblioteca
+      - hmatrix              # hmatrix si la usas en el ejecutable
+
+# Configuración para las pruebas unitarias (opcional)
+tests:
+  foedusML-test:
+    main: FoedusMLTest.hs
+    source-dirs: test
+    dependencies:
+      - base                 # Asegúrate de incluir 'base' en las pruebas
+      - FoedusML
+      - hspec
+

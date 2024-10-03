@@ -1,0 +1,54 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           FoedusML
+version:        0.1.0.0
+author:         Your Name
+maintainer:     your.email@example.com
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      FoedusML.Tensor
+      FoedusML.Compression
+  other-modules:
+      Paths_FoedusML
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , hmatrix
+  default-language: Haskell2010
+
+executable foedusML-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_FoedusML
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      FoedusML
+    , base
+    , hmatrix
+  default-language: Haskell2010
+
+test-suite foedusML-test
+  type: exitcode-stdio-1.0
+  main-is: FoedusMLTest.hs
+  other-modules:
+      Paths_FoedusML
+  hs-source-dirs:
+      test
+  build-depends:
+      FoedusML
+    , base
+    , hspec
+  default-language: Haskell2010
